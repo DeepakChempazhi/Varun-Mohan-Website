@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Varun Mohan</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .about-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 5rem;
+    padding: 5rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  /* LEFT: photo + quick info */
+  .about-left { position: sticky; top: 100px; }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-muted);
+  }
+
+  .photo-placeholder svg {
+    width: 64px; height: 64px;
+    opacity: 0.3;
+  }
+
+  .photo-placeholder p {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding: 0 1.5rem;
+    line-height: 1.5;
+    opacity: 0.6;
+  }
+
+  /* If a real photo is added: */
+  .photo-frame img {
+   src="VarunAbout.jpg"
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .quick-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .qi-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .qi-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .qi-value {
+    font-size: 0.88rem;
+    color: var(--deep);
+    text-decoration: none;
+    line-height: 1.45;
+  }
+
+  .qi-value:hover { color: var(--accent); }
+
+  .left-actions {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .left-actions a {
+    display: block;
+    text-align: center;
+  }
+
+  /* RIGHT: bio */
+  .about-right {}
+
+  .about-right p {
+    font-size: 1.02rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
+  }
+
+  .about-right p strong {
+    color: var(--deep);
+    font-weight: 700;
+  }
+
+  .about-right p:last-child { margin-bottom: 0; }
+
+  .research-focus {
+    margin-top: 2.5rem;
+    padding: 2rem 2.5rem;
+    background: var(--light-bg);
+    border-left: 3px solid var(--accent);
+  }
+
+  .research-focus h3 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    color: var(--mid);
+    background: var(--white);
+    transition: all 0.2s;
+  }
+
+  .tag:hover { background: var(--deep); color: var(--white); border-color: var(--deep); }
+
+  .edu-block {
+    margin-top: 2.5rem;
+  }
+
+  .edu-block h3 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .edu-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .edu-year {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 70px;
+    padding-top: 0.15rem;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--deep);
+    margin-bottom: 0.15rem;
+  }
+
+  .edu-institution {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .about-layout { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 3rem; }
+    .about-left { position: static; }
+    .photo-frame { max-width: 280px; }
+    .left-actions { flex-direction: row; flex-wrap: wrap; }
+    .left-actions a { flex: 1; min-width: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Varun Mohan</a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="positions.html">Positions</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="outreach.html">Outreach</a></li>
+    <li><a href="grants.html">Grants</a></li>
+    <li><a href="mailto:varun.mohan@reva.edu.in">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="page-header">
+    <p class="page-eyebrow fade-up">Who I Am</p>
+    <h1 class="page-title fade-up delay-1">About Varun</h1>
+  </div>
+
+  <div class="about-layout">
+
+    <!-- LEFT COLUMN -->
+    <aside class="about-left fade-up delay-2">
+      <div class="photo-frame">
+        <img src="VarunRename.jpg" alt="Varun Mohan">
+      </div>
+
+      <div class="quick-info">
+        <div class="qi-item">
+          <span class="qi-label">Current Role</span>
+          <span class="qi-value">Assistant Professor, REVA University</span>
+        </div>
+        <div class="qi-item">
+          <span class="qi-label">PhD</span>
+          <span class="qi-value">NIAS Bengaluru</span>
+        </div>
+        <div class="qi-item">
+          <span class="qi-label">Fellowship</span>
+          <span class="qi-value">Research Fellow, Earth System Governance Project</span>
+        </div>
+        <div class="qi-item">
+          <span class="qi-label">Email</span>
+          <a href="mailto:varun.mohan@reva.edu.in" class="qi-value">varun.mohan@reva.edu.in</a>
+        </div>
+         <div class="qi-item">
+          <span class="qi-label">Location</span>
+          <span class="qi-value">Bengaluru, India</span>
+        </div>
+      </div>
+
+      <div class="left-actions">
+        <a href="VarunMohanCV.pdf" download="VarunMohan_CV.pdf" class="btn-primary">Download CV</a>
+        <a href="publications.html" class="btn-outline">Read Publications</a>
+        <a href="mailto:varun.mohan@reva.edu.in" class="btn-accent">Get in Touch</a>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN -->
+    <div class="about-right fade-up delay-3">
+      <p>
+        Varun Mohan is a political scientist specialising in the politics of <strong>global governance, institutional legitimacy, and climate security</strong>, with a particular focus on Global South contexts. He is currently an Assistant Professor at the School of Geopolitics and Public Policy, REVA University, Bengaluru,at the National Institute of Advanced Studies (NIAS), Bengaluru, where he completed his PhD.
+      </p>
+
+      <p>
+        He combines concept-driven inquiry with empirical analysis of policy documents, diplomatic practice, and institutional discourse. His doctoral research examines <strong>climate security and the legitimacy of international governance institutions</strong> from a Southern perspective, contributing to debates on institutional fragmentation and the politics of knowledge production in global environmental governance.
+      </p>
+
+      <p>
+        Varun is also a <strong>Research Fellow with the Earth System Governance Project</strong>, where he serves as Coordinator of the South-South Initiative. In early 2024 he was a Visiting Research Scholar at the School of Political Science and International Studies, University of Queensland, hosted by Professor Matt McDonald.
+      </p>
+
+      <p>
+        His research has been published in journals including <strong>Earth System Governance</strong> and the <strong>Journal of the Indian Ocean Region</strong>, and he contributes regularly to policy-oriented publications including South Asian Voices (Stimson Center), The New Indian Express, and the Australia-India Institute at the University of Melbourne. He has presented at conferences in the USA, Philippines, South Africa and was an Observer at <strong>UNFCCC COP29</strong> in Baku, Azerbaijan.
+      </p>
+
+      <p>
+        He teaches across political theory, international relations, global governance, and climate politics, with a strong interest in interdisciplinary pedagogy. Prior to academia, he founded Pod Learning — a skill development initiative for school students — and served as teaching faculty at iLearn IAS Academy for four years.
+      </p>
+
+      <p>
+        To read more about his publications, research activity, and academic record, please download the CV. He is available by email at <a href="mailto:varun.mohan@reva.edu.in" style="color:var(--mid); text-decoration:underline;">varun.mohan@reva.edu.in</a>.
+      </p>
+
+      <div class="research-focus">
+        <h3>Research Interests</h3>
+        <div class="tag-cloud">
+          <span class="tag">Global Governance</span>
+          <span class="tag">Climate Security</span>
+          <span class="tag">Institutional Legitimacy</span>
+          <span class="tag">Global South</span>
+          <span class="tag">Climate Geopolitics</span>
+          <span class="tag">South Asia</span>
+          <span class="tag">Environmental Politics</span>
+          <span class="tag">Critical Theory</span>
+          <span class="tag">Adaptation</span>
+          <span class="tag">Corporate Climate Ethics</span>
+          <span class="tag">Indo-Pacific</span>
+          <span class="tag">UNSC Climate Debates</span>
+        </div>
+      </div>
+
+      <div class="edu-block">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <span class="edu-year">2021–2025</span>
+          <div>
+            <p class="edu-degree">PhD</p>
+            <p class="edu-institution">National Institute of Advanced Studies, Bengaluru</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-year">2013–2015</span>
+          <div>
+            <p class="edu-degree">MA, Political Science</p>
+            <p class="edu-institution">University of Hyderabad</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-year">2010–2013</span>
+          <div>
+            <p class="edu-degree">BA, History</p>
+            <p class="edu-institution">Loyola College, Chennai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-name">Varun Mohan</p>
+    <p>Assistant Professor · Research Fellow</p>
+  </div>
+  <div style="text-align:right;">
+    <p><a href="mailto:varun.mohan@reva.edu.in">varun.mohan@reva.edu.in</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

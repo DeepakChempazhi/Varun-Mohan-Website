@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grants &amp; Fellowships — Varun Mohan</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .grants-layout {
+    padding: 5rem 6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .grants-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .grants-sidebar p {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  /* Grant cards */
+  .grants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .grant-card {
+    padding: 2rem 2.5rem;
+    border: 1px solid var(--border);
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .grant-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(26,43,60,0.06);
+  }
+
+  .grant-icon-wrap {
+    width: 52px; height: 52px;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .grant-type {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .grant-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--deep);
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+  }
+
+  .grant-body {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Memberships section */
+  .memberships {
+    margin-top: 4rem;
+  }
+
+  .memberships h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--deep);
+  }
+
+  .mem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .mem-item {
+    padding: 1.25rem 1.5rem;
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+  }
+
+  .mem-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--deep);
+  }
+
+  .mem-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 900px) {
+    .grants-layout { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
+    .grants-sidebar { position: static; }
+    .grant-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Varun Mohan</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="positions.html">Positions</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="outreach.html">Outreach</a></li>
+    <li><a href="grants.html" class="active">Grants</a></li>
+    <li><a href="mailto:varun.mohan@reva.edu.in">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="page-header">
+    <p class="page-eyebrow fade-up">Recognition</p>
+    <h1 class="page-title fade-up delay-1">Grants &amp; Fellowships</h1>
+  </div>
+
+  <div class="grants-layout">
+
+    <aside class="grants-sidebar fade-up delay-2">
+      <p class="section-label">Funding &amp; Awards</p>
+      <p>Competitive grants, travel bursaries, and fellowships supporting research in climate governance, Global South perspectives, and international relations.</p>
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="publications.html" class="btn-primary">Read Publications</a>
+        <a href="about.html" class="btn-outline">About Me</a>
+      </div>
+    </aside>
+
+    <div class="fade-up delay-3">
+      <div class="grants-list">
+
+        <div class="grant-card">
+          <div class="grant-icon-wrap">🎓</div>
+          <div>
+            <p class="grant-type">Travel Bursary</p>
+            <p class="grant-name">British Academy Travel Bursary 2026</p>
+            <p class="grant-body">Awarded for participation in the Second Equitable Partnership Conference, Pretoria, South Africa. Organised by the National Research Foundation (NRF), Royal Society, and British Academy.</p>
+          </div>
+        </div>
+
+        <div class="grant-card">
+          <div class="grant-icon-wrap">✈️</div>
+          <div>
+            <p class="grant-type">Conference Travel Grant</p>
+            <p class="grant-name">ISA 2026 Annual Convention Travel Grant</p>
+            <p class="grant-body">International Studies Association travel grant to present at the 2026 Annual Convention, Columbus, Ohio, USA.</p>
+          </div>
+        </div>
+
+        <div class="grant-card">
+          <div class="grant-icon-wrap">🌐</div>
+          <div>
+            <p class="grant-type">International Travel Grant · 2025</p>
+            <p class="grant-name">ICSSR International Travel Grant</p>
+            <p class="grant-body">Awarded by the Indian Council of Social Science Research (ICSSR) to support international conference participation and research collaboration.</p>
+          </div>
+        </div>
+
+        <div class="grant-card">
+          <div class="grant-icon-wrap">🔬</div>
+          <div>
+            <p class="grant-type">Research Grant</p>
+            <p class="grant-name">NIAS Research Grant — Global South Perspectives on People Positive Climate Action</p>
+            <p class="grant-body">Grant from the National Institute of Advanced Studies to conduct research on Global South perspectives in climate governance, focusing on people-centred approaches to climate action.</p>
+          </div>
+        </div>
+
+        <div class="grant-card">
+          <div class="grant-icon-wrap">🏛️</div>
+          <div>
+            <p class="grant-type">Government Fellowship · 2021–2025</p>
+            <p class="grant-name">Senior Research Fellowship, Government of India</p>
+            <p class="grant-body">Four-year competitive fellowship awarded by the Government of India to support doctoral research on climate security and global governance at NIAS Bengaluru.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Memberships -->
+      <div class="memberships">
+        <h2>Memberships &amp; Professional Roles</h2>
+        <div class="mem-grid">
+          <div class="mem-item">
+            <p class="mem-name">International Studies Association</p>
+            <p class="mem-role">Member</p>
+          </div>
+          <div class="mem-item">
+            <p class="mem-name">Earth System Governance Project</p>
+            <p class="mem-role">Coordinator, South-South Initiative · Research Fellow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-name">Varun Mohan</p>
+    <p>Assistant Professor · PhD Researcher · Research Fellow</p>
+  </div>
+  <div style="text-align:right;">
+    <p><a href="mailto:varun.mohan@reva.edu.in">varun.mohan@reva.edu.in</a></p>
+  </div>
+</footer>
+</body>
+</html>

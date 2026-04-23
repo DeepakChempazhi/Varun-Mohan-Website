@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positions — Varun Mohan</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .positions-layout {
+    padding: 5rem 6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .pos-intro {
+    position: sticky;
+    top: 100px;
+  }
+
+  .pos-intro p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-top: 1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-group {
+    margin-bottom: 3.5rem;
+  }
+
+  .tg-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2.5rem 2rem;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 10px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .timeline-date {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.12rem;
+    color: var(--deep);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+  }
+
+  .timeline-org {
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  @media (max-width: 900px) {
+    .positions-layout { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
+    .pos-intro { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Varun Mohan</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="positions.html" class="active">Positions</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="outreach.html">Outreach</a></li>
+    <li><a href="grants.html">Grants</a></li>
+    <li><a href="mailto:varun.mohan@reva.edu.in">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="page-header">
+    <p class="page-eyebrow fade-up">Experience</p>
+    <h1 class="page-title fade-up delay-1">Positions</h1>
+  </div>
+
+  <div class="positions-layout">
+
+    <div class="pos-intro fade-up delay-2">
+      <p class="section-label">Career Overview</p>
+      <p>A record of academic, research, and teaching appointments spanning political science, international relations, and climate governance.</p>
+      <div style="margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="about.html" class="btn-outline">About Me</a>
+        <a href="publications.html" class="btn-primary">Publications</a>
+        <a href="mailto:varun.mohan@reva.edu.in" class="btn-accent">Contact</a>
+      </div>
+    </div>
+
+    <div class="timeline fade-up delay-3">
+
+      <div class="timeline-group">
+        <p class="tg-label">Current Positions</p>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Oct 2025 – Present</p>
+          <h3 class="timeline-role">Assistant Professor</h3>
+          <p class="timeline-org">School of Geopolitics &amp; Public Policy, REVA University, Bengaluru</p>
+          <p class="timeline-desc">Teaching and research appointment covering political theory, international relations, global governance, and climate politics within an interdisciplinary liberal studies programme. Responsible for curriculum delivery and student mentoring at undergraduate and postgraduate levels.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">2024 – Present</p>
+          <h3 class="timeline-role">Research Fellow</h3>
+          <p class="timeline-org">Earth System Governance Project</p>
+          <p class="timeline-desc">Affiliated researcher contributing to international networks on global environmental governance, climate politics, and sustainability transitions. Serves as Coordinator of the South-South Initiative.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Aug 2021 – Dec 2025</p>
+          <h3 class="timeline-role">PhD Researcher</h3>
+          <p class="timeline-org">National Institute of Advanced Studies (NIAS), Bengaluru</p>
+          <p class="timeline-desc">Doctoral research examining climate security, institutional legitimacy, and Global South perspectives in international governance. Supported by the Government of India Senior Research Fellowship. Thesis submitted; degree award pending.</p>
+        </div>
+      </div>
+
+      <div class="timeline-group">
+        <p class="tg-label">Previous Positions</p>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Jan – Apr 2024</p>
+          <h3 class="timeline-role">Visiting Research Scholar</h3>
+          <p class="timeline-org">School of Political Science &amp; International Studies, University of Queensland</p>
+          <p class="timeline-desc">Research visit hosted by Professor Matt McDonald, focusing on climate security and international relations theory in an Indo-Pacific context.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Aug 2020 – Aug 2021</p>
+          <h3 class="timeline-role">Founding Director</h3>
+          <p class="timeline-org">Pod Learning</p>
+          <p class="timeline-desc">Founded and led a skill-development initiative for school students with responsibility for curriculum design, instructional delivery, and academic coordination.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">Nov 2016 – Jul 2020</p>
+          <h3 class="timeline-role">Teaching Faculty — Political Science &amp; International Relations</h3>
+          <p class="timeline-org">iLearn IAS Academy</p>
+          <p class="timeline-desc">Delivered foundational and advanced courses in political science and international relations for competitive examination candidates, including political theory, Indian polity, social justice, and contemporary global affairs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-name">Varun Mohan</p>
+    <p>Assistant Professor · PhD Researcher · Research Fellow</p>
+  </div>
+  <div style="text-align:right;">
+    <p><a href="mailto:varun.mohan@reva.edu.in">varun.mohan@reva.edu.in</a></p>
+  </div>
+</footer>
+</body>
+</html>

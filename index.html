@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varun Mohan | Political Scientist</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* HOME-SPECIFIC: full-height hero split */
+  .hero {
+    min-height: calc(100vh - 70px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem 6rem 6rem;
+    background: var(--light-bg);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--deep);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.85;
+    max-width: 460px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-bio strong { color: var(--deep); font-weight: 700; }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Right panel */
+  .hero-visual {
+    background: var(--deep);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 5rem 4rem;
+  }
+
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 550px; height: 550px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    top: 60px; right: -150px;
+    width: 550px; height: 550px;
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-visual-inner { position: relative; z-index: 2; width: 100%; }
+
+  .hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+    max-width: 380px;
+  }
+
+  .affil-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .affil-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .affil-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 0.45rem; }
+  .affil-text { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+  .affil-text strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+
+  /* Quick links strip */
+  .quicklinks {
+    background: var(--deep);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .ql-item {
+    padding: 2.2rem 2.5rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .ql-item:last-child { border-right: none; }
+  .ql-item:hover { background: rgba(255,255,255,0.05); }
+
+  .ql-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .ql-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .ql-arrow {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 0.5rem;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .ql-item:hover .ql-arrow { transform: translateX(4px); color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-content { padding: 4rem 2rem; }
+    .hero-visual { min-height: 42vh; padding: 3rem 2rem; }
+    .quicklinks { grid-template-columns: 1fr 1fr; }
+    .ql-item { padding: 1.5rem 1.5rem; }
+    .ql-item:nth-child(2) { border-right: none; }
+    .ql-item:nth-child(1), .ql-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Varun Mohan</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="positions.html">Positions</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="outreach.html">Outreach</a></li>
+    <li><a href="grants.html">Grants</a></li>
+    <li><a href="mailto:varun.mohan@reva.edu.in">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper" style="padding-top:70px;">
+  <div class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">Political Scientist &amp; Researcher</p>
+      <h1 class="hero-name fade-up delay-1">Varun<br>Mohan</h1>
+      <p class="hero-subtitle fade-up delay-2">Assistant Professor<br>Climate Politics · Global Governance · Global South</p>
+      <p class="hero-bio fade-up delay-3">
+        I study the politics of <strong>global governance, institutional legitimacy, and climate security</strong>, with a particular focus on Global South perspectives. My work bridges critical theory, empirical policy analysis, and diplomatic practice.
+      </p>
+      <div class="hero-buttons fade-up delay-4">
+        <a href="about.html" class="btn-primary">About Me</a>
+        <a href="publications.html" class="btn-outline">Publications</a>
+        <a href="mailto:varun.mohan@reva.edu.in" class="btn-accent">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div style="width:120px; height:150px; overflow:hidden; margin-bottom:2rem; border:2px solid rgba(255,255,255,0.12);">
+          <img src="VarunAbout.jpg" alt="Varun Mohan" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+        </div>
+        <p class="hero-quote">"Climate governance is not merely a technical challenge — it is a profound question of legitimacy and justice."</p>
+        <div class="affil-list">
+          <div class="affil-item">
+            <div class="affil-dot"></div>
+            <p class="affil-text"><strong>REVA University</strong> — Asst. Professor, School of Geopolitics &amp; Public Policy</p>
+          </div>
+          <div class="affil-item">
+            <div class="affil-dot"></div>
+            <p class="affil-text"><strong>NIAS Bengaluru</strong> — PhD</p>
+          </div>
+          <div class="affil-item">
+            <div class="affil-dot"></div>
+            <p class="affil-text"><strong>Earth System Governance Project</strong> — Research Fellow</p>
+          </div>
+          <div class="affil-item">
+            <div class="affil-dot"></div>
+            <p class="affil-text"><strong>University of Queensland</strong> — Visiting Research Scholar (2024)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick navigation strip -->
+  <div class="quicklinks">
+    <a href="about.html" class="ql-item">
+      <span class="ql-label">Who I Am</span>
+      <span class="ql-title">About</span>
+      <span class="ql-arrow">→</span>
+    </a>
+    <a href="publications.html" class="ql-item">
+      <span class="ql-label">Scholarship</span>
+      <span class="ql-title">Publications</span>
+      <span class="ql-arrow">→</span>
+    </a>
+    <a href="outreach.html" class="ql-item">
+      <span class="ql-label">Policy &amp; Conferences</span>
+      <span class="ql-title">Outreach</span>
+      <span class="ql-arrow">→</span>
+    </a>
+    <a href="grants.html" class="ql-item">
+      <span class="ql-label">Recognition</span>
+      <span class="ql-title">Grants &amp; Fellowships</span>
+      <span class="ql-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-name">Varun Mohan</p>
+    <p>Assistant Professor· Research Fellow</p>
+  </div>
+  <div style="text-align:right;">
+    <p><a href="mailto:varun.mohan@reva.edu.in">varun.mohan@reva.edu.in</a></p>
+    <p style="margin-top:0.5rem; font-size:0.7rem; color:rgba(255,255,255,0.3);">Bengaluru, India</p>
+  </div>
+</footer>
+
+</body>
+</html>

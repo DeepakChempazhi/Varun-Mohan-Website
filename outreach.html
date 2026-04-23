@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outreach — Varun Mohan</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .outreach-layout {
+    padding: 5rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Article card grid for commentaries */
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: var(--white);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    overflow: hidden;
+  }
+
+  .article-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 24px rgba(26,43,60,0.08);
+    transform: translateY(-2px);
+  }
+
+  .article-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--light-bg);
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .article-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .article-card:hover .article-img img { transform: scale(1.04); }
+
+  .article-img-fallback {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  .article-img-fallback-inner {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .fallback-venue {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .fallback-line {
+    width: 30px; height: 2px;
+    background: var(--accent);
+    margin: 0 auto;
+  }
+
+  .article-body {
+    padding: 1rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+  }
+
+  .article-venue {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.88rem;
+    color: var(--deep);
+    line-height: 1.45;
+  }
+
+  .article-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: 0.4rem;
+  }
+
+  .article-read {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 0.5rem;
+  }
+
+  .outreach-col h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--deep);
+  }
+
+  .outreach-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .outreach-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .outreach-item {
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .outreach-venue {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .outreach-title {
+    font-size: 0.93rem;
+    color: var(--deep);
+    line-height: 1.45;
+    margin-bottom: 0.3rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .outreach-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .outreach-title a:hover { color: var(--accent); text-decoration: underline; }
+
+  .outreach-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .outreach-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.5rem;
+    border-radius: 2px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .tag-forthcoming { background: #e6f1fb; color: #185fa5; }
+  .tag-observer    { background: #faeeda; color: #854f0b; }
+  .tag-rapporteur  { background: #e8f0d8; color: #3b6d11; }
+
+  /* Rapporteur / Talks section */
+  .rapporteur-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .rapporteur-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--deep);
+  }
+
+  .rap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .rap-card {
+    padding: 1.75rem;
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+  }
+
+  .rap-card-venue {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .rap-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--deep);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  .rap-card-date {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .outreach-layout { padding: 3rem 2rem; }
+    .outreach-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .article-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .article-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Varun Mohan</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="positions.html">Positions</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="outreach.html" class="active">Outreach</a></li>
+    <li><a href="grants.html">Grants</a></li>
+    <li><a href="mailto:varun.mohan@reva.edu.in">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="page-header">
+    <p class="page-eyebrow fade-up">Public Engagement</p>
+    <h1 class="page-title fade-up delay-1">Outreach</h1>
+  </div>
+
+  <div class="outreach-layout">
+    <div class="outreach-grid">
+
+      <!-- COMMENTARIES -->
+      <div class="outreach-col fade-up delay-2">
+        <h2>Policy Commentaries &amp; Opinion</h2>
+        <div class="article-grid" id="article-grid">
+
+          <a class="article-card" href="https://telanganatoday.com/opinion-us-national-strategy-shift-opens-new-doors-and-new-demands-for-india" target="_blank"
+             data-venue="Telangana Today" data-date="December 2025">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">Telangana Today</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">Telangana Today</span>
+              <p class="article-title">US National Strategy Shift Opens New Doors and New Demands for India</p>
+              <p class="article-meta">December 2025 · with co-authors</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://geopolitics.reva.edu.in/circulardetail/cop30-and-climate-geopolitics" target="_blank"
+             data-venue="REVA Geopolitics Centre" data-date="December 2025">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">REVA Geopolitics Centre</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">REVA Centre of Excellence for Geopolitics</span>
+              <p class="article-title">COP30 and Climate Geopolitics</p>
+              <p class="article-meta">December 2025</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://southasianvoices.org/ec-m-in-r-indian-environmental-governance-02-14-2025/" target="_blank"
+             data-venue="South Asian Voices" data-date="February 2025">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">South Asian Voices</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">South Asian Voices · Stimson Center</span>
+              <p class="article-title">A Test of Governance: India's Struggle Against Environmental Upheaval</p>
+              <p class="article-meta">February 2025</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://www.newindianexpress.com/xplore/2024/Dec/28/market-mechanism-debate-article-6-key-to-emissions-reduction" target="_blank"
+             data-venue="The New Indian Express" data-date="December 2024">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">The New Indian Express</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">The New Indian Express</span>
+              <p class="article-title">Market Mechanism Debate: Article 6 Key to Emissions Reduction</p>
+              <p class="article-meta">December 2024</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://aii.unimelb.edu.au/forging-a-green-alliance-india-australia-collaboration-on-climate-change/" target="_blank"
+             data-venue="Australia-India Institute" data-date="April 2024">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">Australia-India Institute</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">Australia-India Institute · Univ. of Melbourne</span>
+              <p class="article-title">Forging a Green Alliance: India-Australia Collaboration on Climate Change</p>
+              <p class="article-meta">April 2024 · with Panneerselvam, P.</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://southasianvoices.org/pol-m-in-n-india-electoral-bond-conundrum-04-16-2024/" target="_blank"
+             data-venue="South Asian Voices" data-date="April 2024">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">South Asian Voices</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">South Asian Voices · Stimson Center</span>
+              <p class="article-title">India's Electoral Bond Conundrum</p>
+              <p class="article-meta">April 2024</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://www.geopoliticalmonitor.com/sri-lanka-crisis-a-21st-century-french-revolution/" target="_blank"
+             data-venue="Geopolitical Monitor" data-date="July 2022">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">Geopolitical Monitor</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">Geopolitical Monitor</span>
+              <p class="article-title">Sri Lanka Crisis: A 21st Century French Revolution</p>
+              <p class="article-meta">July 2022</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+          <a class="article-card" href="https://thegeopolitics.com/interpretation-of-quad-and-aukus-in-the-indo-pacific-region/" target="_blank"
+             data-venue="The Geopolitics" data-date="March 2022">
+            <div class="article-img">
+              <div class="article-img-fallback">
+                <div class="article-img-fallback-inner">
+                  <span class="fallback-venue">The Geopolitics</span>
+                  <div class="fallback-line"></div>
+                </div>
+              </div>
+              <img src="" alt="" style="display:none;">
+            </div>
+            <div class="article-body">
+              <span class="article-venue">The Geopolitics</span>
+              <p class="article-title">Interpretation of QUAD and AUKUS in the Indo-Pacific Region</p>
+              <p class="article-meta">March 2022</p>
+              <span class="article-read">Read article →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- CONFERENCES -->
+      <div class="outreach-col fade-up delay-3">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+          <div>
+            <h2>Conference Presentations</h2>
+            <ul class="outreach-list">
+
+              <li class="outreach-item">
+                <p class="outreach-venue">ISA 2026 Annual Convention · Columbus, Ohio, USA</p>
+                <p class="outreach-title">Contested Climates, Fractured Orders: Climate Security, the UN, and the Crisis of Global Legitimacy</p>
+                <p class="outreach-meta">March 2026</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">Second Equitable Partnership Conference · Pretoria, South Africa</p>
+                <p class="outreach-title">Panel Discussion — NRF, Royal Society &amp; British Academy</p>
+                <p class="outreach-meta">February</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">UNFCCC COP29 · Baku, Azerbaijan</p>
+                <p class="outreach-title">Observer, Conference of Parties <span class="outreach-tag tag-observer">Observer</span></p>
+                <p class="outreach-meta">November 2024</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">4th NERPS Conference · De La Salle University, Manila</p>
+                <p class="outreach-title">Geopolitics in Crisis: Climate Governance and Power Dynamics in the Indo-Pacific</p>
+                <p class="outreach-meta">2024</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">ISSS-IS Pittsburgh Conference · USA</p>
+                <p class="outreach-title">In Search of Consensus: Global South Perspectives on Climate Security in UNSC Debates</p>
+                <p class="outreach-meta">2024</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">The Arctic Institute · International Conference</p>
+                <p class="outreach-title">Climate Security in the Arctic — A Global South Perspective</p>
+                <p class="outreach-meta">June 2022</p>
+              </li>
+
+              <li class="outreach-item">
+                <p class="outreach-venue">Annual International Studies Convention · JNU, New Delhi</p>
+                <p class="outreach-title">Emerging LAC Markets: Growth, Opportunities and Challenges to India</p>
+                <p class="outreach-meta">December 2013 · with co-author</p>
+              </li>
+
+            </ul>
+          </div>
+
+          <div>
+            <h2>Talks, Reports &amp; Activities</h2>
+            <div style="display:flex; flex-direction:column; gap:1.25rem;">
+
+              <div class="rap-card">
+                <p class="rap-card-venue">Special Rapporteur</p>
+                <p class="rap-card-title">India, EU, and Just Energy Transitions: Strengthening Climate Diplomacy for Sustainable Futures — Manipal University</p>
+                <p class="rap-card-date">August 2024 <span class="outreach-tag tag-rapporteur">Rapporteur</span></p>
+              </div>
+
+              <div class="rap-card">
+                <p class="rap-card-venue">Earth System Governance Forum</p>
+                <p class="rap-card-title">Volunteer — Re-Imagining Earth System Governance in an Era of Polycrisis</p>
+                <p class="rap-card-date">October 2024</p>
+              </div>
+
+              <div class="rap-card">
+                <p class="rap-card-venue">NIAS Wednesday Discussion Series</p>
+                <p class="rap-card-title">In Search of Consensus: Examining Global South Perspectives on Climate Security in UNSC Debates</p>
+                <p class="rap-card-date">December 2024</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-name">Varun Mohan</p>
+    <p>Assistant Professor · PhD Researcher · Research Fellow</p>
+  </div>
+  <div style="text-align:right;">
+    <p><a href="mailto:varun.mohan@reva.edu.in">varun.mohan@reva.edu.in</a></p>
+  </div>
+</footer>
+
+<script>
+/* Fetch Open Graph images for article cards via a public OG proxy */
+(function() {
+  const cards = document.querySelectorAll('.article-card');
+
+  /* Map of known OG images for each article URL — avoids CORS issues entirely */
+  const knownImages = {
+    'southasianvoices.org/ec-m-in-r-indian-environmental-governance':
+      'https://southasianvoices.org/wp-content/uploads/2025/02/India-environment.jpg',
+    'southasianvoices.org/pol-m-in-n-india-electoral-bond':
+      'https://southasianvoices.org/wp-content/uploads/2024/04/electoral-bonds.jpg',
+    'aii.unimelb.edu.au/forging-a-green-alliance':
+      'https://aii.unimelb.edu.au/wp-content/uploads/2024/04/india-australia-climate.jpg',
+  };
+
+  /* Colour palettes for fallback cards — one per venue */
+  const palettes = [
+    { bg: '#1a2b3c', text: '#c47b3a' },
+    { bg: '#2d4a6b', text: '#f7f4ef' },
+    { bg: '#c47b3a', text: '#1a2b3c' },
+    { bg: '#f7f4ef', text: '#1a2b3c' },
+    { bg: '#3b6d11', text: '#e8f0d8' },
+    { bg: '#185fa5', text: '#e6f1fb' },
+    { bg: '#854f0b', text: '#faeeda' },
+    { bg: '#5a5a55', text: '#f7f4ef' },
+  ];
+
+  cards.forEach(function(card, idx) {
+    const url = card.href;
+    const venue = card.dataset.venue || '';
+    const date = card.dataset.date || '';
+    const imgEl = card.querySelector('.article-img img');
+    const fallbackEl = card.querySelector('.article-img-fallback');
+    const palette = palettes[idx % palettes.length];
+
+    /* Style the fallback with a colour block */
+    fallbackEl.style.background = palette.bg;
+    const venueLabel = fallbackEl.querySelector('.fallback-venue');
+    const line = fallbackEl.querySelector('.fallback-line');
+    if (venueLabel) { venueLabel.style.color = palette.text; }
+    if (line) { line.style.background = palette.text; }
+
+    /* Add date to fallback */
+    const dateEl = document.createElement('span');
+    dateEl.textContent = date;
+    dateEl.style.cssText = 'display:block; font-size:0.65rem; letter-spacing:0.1em; margin-top:0.5rem; color:' + palette.text + '; opacity:0.7;';
+    fallbackEl.querySelector('.article-img-fallback-inner').appendChild(dateEl);
+
+    /* Try to load OG image via a public OG scraping service */
+    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+
+    fetch(proxyUrl, { signal: AbortSignal.timeout(5000) })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        const html = data.contents || '';
+        /* Parse og:image from returned HTML */
+        const match = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+                   || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+        if (match && match[1]) {
+          const ogImg = match[1];
+          const testImg = new Image();
+          testImg.onload = function() {
+            imgEl.src = ogImg;
+            imgEl.alt = venue;
+            imgEl.style.display = 'block';
+            fallbackEl.style.display = 'none';
+          };
+          testImg.onerror = function() { /* keep fallback */ };
+          testImg.src = ogImg;
+        }
+      })
+      .catch(function() { /* keep styled fallback */ });
+  });
+})();
+</script>
+</body>
+</html>
